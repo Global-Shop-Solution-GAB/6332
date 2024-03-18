@@ -1,0 +1,616 @@
+﻿Program.Sub.ScreenSU.Start
+Gui.frmBarcode..Create(BaseForm)
+Gui.frmBarcode..Caption("Barcode Generator")
+Gui.frmBarcode..Size(6690,3810)
+Gui.frmBarcode..MinX(0)
+Gui.frmBarcode..MinY(0)
+Gui.frmBarcode..Position(0,0)
+Gui.frmBarcode..AlwaysOnTop(False)
+Gui.frmBarcode..FontName("Tahoma")
+Gui.frmBarcode..FontSize(8.25)
+Gui.frmBarcode..ControlBox(True)
+Gui.frmBarcode..MaxButton(True)
+Gui.frmBarcode..MinButton(True)
+Gui.frmBarcode..MousePointer(0)
+Gui.frmBarcode..Moveable(True)
+Gui.frmBarcode..Sizeable(True)
+Gui.frmBarcode..ShowInTaskBar(True)
+Gui.frmBarcode..TitleBar(True)
+Gui.frmBarcode..Event(UnLoad,frmBarCode_UnLoad)
+Gui.frmBarcode.txtPart.Create(TextBox,"",True,3885,300,0,360,525,True,0,"Tahoma",8.25,,1)
+Gui.frmBarcode.txtPart.Locked(True)
+Gui.frmBarcode.txtPart.Anchor(15)
+Gui.frmBarcode.txtPart.TabStop(True)
+Gui.frmBarcode.txtPart.TabIndex(1)
+Gui.frmBarcode.txtRev.Create(TextBox,"",True,1500,300,0,4395,525,True,0,"Tahoma",8.25,,1)
+Gui.frmBarcode.txtRev.Locked(True)
+Gui.frmBarcode.txtRev.Anchor(15)
+Gui.frmBarcode.txtRev.TabStop(True)
+Gui.frmBarcode.txtRev.TabIndex(2)
+Gui.frmBarcode.txtDesc.Create(TextBox,"",True,5880,300,0,360,1260,True,0,"Tahoma",8.25,,1)
+Gui.frmBarcode.txtDesc.Locked(True)
+Gui.frmBarcode.txtDesc.Anchor(15)
+Gui.frmBarcode.txtDesc.TabStop(True)
+Gui.frmBarcode.txtDesc.TabIndex(3)
+Gui.frmBarcode.txtSerialBeg.Create(TextBox,"",True,2775,300,0,360,1995,True,0,"Tahoma",8.25,,1)
+Gui.frmBarcode.txtSerialBeg.Event(Change,txtSerialBeg_Change)
+Gui.frmBarcode.txtSerialBeg.Anchor(15)
+Gui.frmBarcode.txtSerialBeg.TabStop(True)
+Gui.frmBarcode.txtSerialBeg.TabIndex(4)
+Gui.frmBarcode.lblPart.Create(Label,"Part",True,300,195,0,360,270,True,0,"Tahoma",8.25,,0,0)
+Gui.frmBarcode.lblPart.BorderStyle(0)
+Gui.frmBarcode.lblPart.Anchor(15)
+Gui.frmBarcode.lblRev.Create(Label,"Rev",True,285,195,0,4395,270,True,0,"Tahoma",8.25,,0,0)
+Gui.frmBarcode.lblRev.BorderStyle(0)
+Gui.frmBarcode.lblRev.Anchor(15)
+Gui.frmBarcode.lblDesc.Create(Label,"Description",True,795,195,0,360,1005,True,0,"Tahoma",8.25,,0,0)
+Gui.frmBarcode.lblDesc.BorderStyle(0)
+Gui.frmBarcode.lblDesc.Anchor(15)
+Gui.frmBarcode.lblSerialBeg.Create(Label,"Serial Number Begin",True,1425,195,0,360,1740,True,0,"Tahoma",8.25,,0,0)
+Gui.frmBarcode.lblSerialBeg.BorderStyle(0)
+Gui.frmBarcode.lblSerialBeg.Anchor(15)
+Gui.frmBarcode.cmdPartBrwsr.Create(Button)
+Gui.frmBarcode.cmdPartBrwsr.Enabled(True)
+Gui.frmBarcode.cmdPartBrwsr.Visible(True)
+Gui.frmBarcode.cmdPartBrwsr.Zorder(0)
+Gui.frmBarcode.cmdPartBrwsr.Size(300,300)
+Gui.frmBarcode.cmdPartBrwsr.Position(5970,525)
+Gui.frmBarcode.cmdPartBrwsr.Caption("^")
+Gui.frmBarcode.cmdPartBrwsr.FontName("Tahoma")
+Gui.frmBarcode.cmdPartBrwsr.FontSize(8.25)
+Gui.frmBarcode.cmdPartBrwsr.Event(Click,cmdPartBrwsr_Click)
+Gui.frmBarcode.cmdPartBrwsr.Anchor(15)
+Gui.frmBarcode.cmdPrint.Create(Button)
+Gui.frmBarcode.cmdPrint.Enabled(True)
+Gui.frmBarcode.cmdPrint.Visible(True)
+Gui.frmBarcode.cmdPrint.Zorder(0)
+Gui.frmBarcode.cmdPrint.Size(1125,345)
+Gui.frmBarcode.cmdPrint.Position(360,2535)
+Gui.frmBarcode.cmdPrint.Caption("Print")
+Gui.frmBarcode.cmdPrint.FontName("Tahoma")
+Gui.frmBarcode.cmdPrint.FontSize(8.25)
+Gui.frmBarcode.cmdPrint.Event(Click,cmdPrint_Click)
+Gui.frmBarcode.cmdPrint.Anchor(15)
+Gui.frmBarcode.cmdPrint.TabStop(True)
+Gui.frmBarcode.cmdPrint.TabIndex(8)
+Gui.frmBarcode.cmdClear.Create(Button)
+Gui.frmBarcode.cmdClear.Enabled(True)
+Gui.frmBarcode.cmdClear.Visible(True)
+Gui.frmBarcode.cmdClear.Zorder(0)
+Gui.frmBarcode.cmdClear.Size(1125,345)
+Gui.frmBarcode.cmdClear.Position(5130,2535)
+Gui.frmBarcode.cmdClear.Caption("Clear")
+Gui.frmBarcode.cmdClear.FontName("Tahoma")
+Gui.frmBarcode.cmdClear.FontSize(8.25)
+Gui.frmBarcode.cmdClear.Event(Click,cmdClear_Click)
+Gui.frmBarcode.cmdClear.Anchor(15)
+Gui.frmBarcode.txtSerialEnd.Create(TextBox,"",True,2580,300,0,3345,1995,True,0,"Tahoma",8.25,,1)
+Gui.frmBarcode.txtSerialEnd.Anchor(15)
+Gui.frmBarcode.txtSerialEnd.TabStop(True)
+Gui.frmBarcode.txtSerialEnd.TabIndex(5)
+Gui.frmBarcode.lblSerialEnd.Create(Label,"Serial Number End",True,1305,195,0,3345,1740,True,0,"Tahoma",8.25,,0,0)
+Gui.frmBarcode.lblSerialEnd.BorderStyle(0)
+Gui.frmBarcode.lblSerialEnd.Anchor(15)
+Gui.frmBarcode.cmdAdd.Create(Button)
+Gui.frmBarcode.cmdAdd.Enabled(True)
+Gui.frmBarcode.cmdAdd.Visible(True)
+Gui.frmBarcode.cmdAdd.Zorder(0)
+Gui.frmBarcode.cmdAdd.Size(1125,345)
+Gui.frmBarcode.cmdAdd.Position(1875,2535)
+Gui.frmBarcode.cmdAdd.Caption("Add")
+Gui.frmBarcode.cmdAdd.FontName("Tahoma")
+Gui.frmBarcode.cmdAdd.FontSize(8.25)
+Gui.frmBarcode.cmdAdd.Event(Click,cmdAdd_Click)
+Gui.frmBarcode.cmdAdd.Anchor(15)
+Gui.frmBarcode.cmdAdd.TabStop(True)
+Gui.frmBarcode.cmdAdd.TabIndex(6)
+Gui.frmBarcode.cmdView.Create(Button)
+Gui.frmBarcode.cmdView.Enabled(True)
+Gui.frmBarcode.cmdView.Visible(True)
+Gui.frmBarcode.cmdView.Zorder(0)
+Gui.frmBarcode.cmdView.Size(1125,345)
+Gui.frmBarcode.cmdView.Position(3465,2535)
+Gui.frmBarcode.cmdView.Caption("View")
+Gui.frmBarcode.cmdView.FontName("Tahoma")
+Gui.frmBarcode.cmdView.FontSize(8.25)
+Gui.frmBarcode.cmdView.Event(Click,cmdView_Click)
+Gui.frmBarcode.cmdView.Anchor(15)
+Gui.frmBarcode.cmdView.TabStop(True)
+Gui.frmBarcode.cmdView.TabIndex(7)
+Gui.frmQueue..Create(BaseForm)
+Gui.frmQueue..Caption("Serial Numbers Queued")
+Gui.frmQueue..Size(7920,6225)
+Gui.frmQueue..MinX(0)
+Gui.frmQueue..MinY(0)
+Gui.frmQueue..Position(0,0)
+Gui.frmQueue..AlwaysOnTop(False)
+Gui.frmQueue..FontName("Tahoma")
+Gui.frmQueue..FontSize(8.25)
+Gui.frmQueue..ControlBox(True)
+Gui.frmQueue..MaxButton(True)
+Gui.frmQueue..MinButton(True)
+Gui.frmQueue..MousePointer(0)
+Gui.frmQueue..Moveable(True)
+Gui.frmQueue..Sizeable(True)
+Gui.frmQueue..ShowInTaskBar(True)
+Gui.frmQueue..TitleBar(True)
+Gui.frmQueue..Event(UnLoad,frmQueue_UnLoad)
+Gui.frmQueue.GsGCQueue.Create(GsGridControl)
+Gui.frmQueue.GsGCQueue.Enabled(True)
+Gui.frmQueue.GsGCQueue.Visible(True)
+Gui.frmQueue.GsGCQueue.Zorder(0)
+Gui.frmQueue.GsGCQueue.Size(7695,5430)
+Gui.frmQueue.GsGCQueue.Position(150,135)
+Gui.frmQueue.GsGCQueue.Anchor(15)
+Gui.frmQueue.GsGCQueue.Event(RowClick,GsGCQueue_RowClick)
+Gui.frmQty..Create(BaseForm)
+Gui.frmQty..Caption("Select Label Qty ")
+Gui.frmQty..Size(3285,2265)
+Gui.frmQty..MinX(0)
+Gui.frmQty..MinY(0)
+Gui.frmQty..Position(0,0)
+Gui.frmQty..AlwaysOnTop(False)
+Gui.frmQty..FontName("Tahoma")
+Gui.frmQty..FontSize(8.25)
+Gui.frmQty..ControlBox(True)
+Gui.frmQty..MaxButton(True)
+Gui.frmQty..MinButton(True)
+Gui.frmQty..MousePointer(0)
+Gui.frmQty..Moveable(True)
+Gui.frmQty..Sizeable(True)
+Gui.frmQty..ShowInTaskBar(True)
+Gui.frmQty..TitleBar(True)
+Gui.frmQty..Event(UnLoad,frmQty_UnLoad)
+Gui.frmQty.lblQty.Create(Label,"Enter Number of Label Copies",True,2130,195,0,495,315,True,0,"Tahoma",8.25,,0,0)
+Gui.frmQty.lblQty.BorderStyle(0)
+Gui.frmQty.txtQty.Create(TextBox,"1",True,1500,300,0,810,690,True,0,"Tahoma",8.25,,1)
+Gui.frmQty.txtQty.NumericOnly(2)
+Gui.frmQty.cmdOK.Create(Button)
+Gui.frmQty.cmdOK.Enabled(True)
+Gui.frmQty.cmdOK.Visible(True)
+Gui.frmQty.cmdOK.Zorder(0)
+Gui.frmQty.cmdOK.Size(1125,345)
+Gui.frmQty.cmdOK.Position(990,1155)
+Gui.frmQty.cmdOK.Caption("Ok")
+Gui.frmQty.cmdOK.FontName("Tahoma")
+Gui.frmQty.cmdOK.FontSize(8.25)
+Gui.frmQty.cmdOK.Event(Click,cmdOK_Click)
+Program.Sub.ScreenSU.End
+
+Program.Sub.Preflight.Start
+V.Global.bConOpen.Declare(Boolean, False)
+V.Global.iBIRunID.Declare
+V.Global.iBILogID.Declare
+V.Global.bItemInBrwsr.Declare(Boolean, False)
+V.Global.iRowIndex.Declare
+Program.Sub.Preflight.End
+Program.Sub.Main.Start
+'Author: Brandon Medina 
+'Customer: Maccor 
+'Program Name: Barcode Lbl Gen
+'Started: 4/26/2021
+'Description: Custom Screen that will allow user to select Part and enter/choose serial number to then print barcode
+'Quote: 12773
+'GAP: 6332
+
+F.Intrinsic.Control.Try
+	
+	F.Intrinsic.Control.If(V.DataTable.dtPassedItemSet.Exists, =, False)
+		F.Data.Datatable.Create("dtPassedItemSet", True)
+		F.Data.Datatable.AddColumn("dtPassedItemSet", "PART", "String")
+		'F.Data.Datatable.AddColumn("dtPassedItemSet", "SERIAL", "String")
+		F.Data.Datatable.AddColumn("dtPassedItemSet", "REV", "String")
+		F.Data.Datatable.AddColumn("dtPassedItemSet", "SerialNums", "String")
+	F.Intrinsic.Control.EndIf
+	
+	'Format Queue Grid
+	Gui.frmQueue.GsGCQueue.AddGridviewFromDatatable("gvQueue", "dtPassedItemSet")
+	
+	Gui.frmQueue.GsGCQueue.SetColumnProperty("gvQueue", "PART", "Caption", "Part")
+	Gui.frmQueue.GsGCQueue.SetColumnProperty("gvQueue", "REV", "Caption", "Rev")
+	Gui.frmQueue.GsGCQueue.SetColumnProperty("gvQueue", "SerialNums", "Caption", "Serial No")
+	
+	Gui.frmQueue.GsGCQueue.SetColumnProperty("gvQueue","PART","MinWidth","200")
+	Gui.frmQueue.GsGCQueue.SetColumnProperty("gvQueue","REV","MinWidth","100")
+	Gui.frmQueue.GsGCQueue.SetColumnProperty("gvQueue","SerialNums","MinWidth","400")
+	
+	Gui.frmQueue.GsGCQueue.SetColumnProperty("gvQueue","PART","HeaderFontBold",True)
+	Gui.frmQueue.GsGCQueue.SetColumnProperty("gvQueue","REV","HeaderFontBold",True)
+	Gui.frmQueue.GsGCQueue.SetColumnProperty("gvQueue","SerialNums","HeaderFontBold",True)
+	
+	'Set Context menu 
+	F.Intrinsic.Control.CallSub(setContextMenus)
+	
+	Gui.frmBarcode..Show
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.Control.CallSub(ErrorMsg, CurrentSub, v.Ambient.CurrentSubroutine)
+F.Intrinsic.Control.EndTry
+Program.Sub.Main.End
+
+Program.Sub.ErrorMsg.Start
+v.Local.sError.Declare
+
+F.Intrinsic.Control.If(V.Global.bConOpen)
+	F.ODBC.Connection!con.Close
+F.Intrinsic.Control.EndIf
+
+'Generic Error message.
+f.Intrinsic.String.Build("Project GCG_6332_Barcode_Lbl_Gen.g2u {0}{0}Subroutine: {1}{0}Error: {2} with Description: {3}", v.Ambient.NewLine, v.Args.CurrentSub, v.Ambient.ErrorNumber, v.Ambient.ErrorDescription, v.Local.sError)
+f.Intrinsic.UI.Msgbox(v.Local.sError)
+Program.Sub.ErrorMsg.End
+Program.Sub.frmBarCode_UnLoad.Start
+F.Intrinsic.Control.Try
+	F.Intrinsic.Control.End
+F.Intrinsic.Control.Catch
+	F.Intrinsic.Control.CallSub(ErrorMsg, CurrentSub, v.Ambient.CurrentSubroutine)
+F.Intrinsic.Control.EndTry
+Program.Sub.frmBarCode_UnLoad.End
+
+Program.Sub.cmdPartBrwsr_Click.Start
+F.Intrinsic.Control.Try
+	F.Intrinsic.Control.CallSub(callBrowser, "iBrowserType", PartBrowser)
+F.Intrinsic.Control.Catch
+	F.Intrinsic.Control.CallSub(ErrorMsg, CurrentSub, v.Ambient.CurrentSubroutine)
+F.Intrinsic.Control.EndTry
+Program.Sub.cmdPartBrwsr_Click.End
+Program.Sub.cmdPrint_Click.Start
+F.Intrinsic.Control.Try
+	V.Local.iBIRptID.Declare
+	V.Local.sFormatPart.Declare
+	V.Local.sFormatSerial.Declare
+	V.Local.sFormatRev.Declare
+	V.Local.sFinalRet.Declare
+	V.Local.i.Declare
+	V.Local.iLabelTotal.Declare
+	V.Local.sSerialNum.Declare
+	V.Local.sMessage.Declare
+	V.Local.sRet.Declare
+	V.Local.iFinalAlpha.Declare
+	V.Local.sStringRet.Declare
+	V.Local.sNumToIncrementStart.Declare
+	V.Local.sNumToIncrementEnd.Declare
+	V.Local.sLetterToFind.Declare
+	V.Local.bEndPrefixMatchBegPrefix.Declare
+	V.Local.sPrefix.Declare
+	
+	'Grab Run ID 
+	F.Global.BI.GetRunID(V.Global.iBIRunID)
+	'Grab Report ID 
+	F.Global.BI.GetIDFromName("GCG_6332_SerialBarcode.lab", V.Local.iBIRptID) 
+	'Start BI logging
+	F.Global.BI.StartLogging(V.Global.iBIRunID, V.Local.iBIRptID, -1, "", V.Global.iBILogID)
+	
+	'Check there's stuff in queue
+	F.Intrinsic.Control.If(V.DataTable.dtPassedItemSet.Exists, =, False)
+		F.Intrinsic.UI.Msgbox("No Serial Numbers are queued up")
+		F.Intrinsic.Control.ExitSub
+	F.Intrinsic.Control.EndIf
+	
+	F.Intrinsic.Control.If(V.DataTable.dtPassedItemSet.RowCount, <, 1)
+		F.Intrinsic.UI.Msgbox("No Serial Numbers are queued up")
+		F.Intrinsic.Control.ExitSub
+	F.Intrinsic.Control.EndIf
+	
+	F.Intrinsic.Control.If(V.DataTable.dtFinalSerial.Exists, =, False)
+		F.Data.Datatable.Create("dtFinalSerial", True)
+		F.Data.Datatable.AddColumn("dtFinalSerial", "ComboSerial", "String")
+	F.Intrinsic.Control.EndIf
+	
+	
+	F.Intrinsic.Control.For(V.Local.i, 0, V.DataTable.dtPassedItemSet.RowCount--, 1)
+		'Piece together info according to spec (inclusive digit ranges)
+		'***1-12: Part num, right padded w spaces + 13-19: Serial Num, right padded w spaces + 20-21: Rev, left padded w spaces*** 
+		F.Intrinsic.String.Left(V.DataTable.dtPassedItemSet(V.Local.i).PART!FieldValTrim, 12, V.Local.sFormatPart)
+		F.Intrinsic.String.RPad(V.Local.sFormatPart, " ", 12, V.Local.sFormatPart)
+		F.Intrinsic.String.Left(V.DataTable.dtPassedItemSet(V.Local.i).SerialNums!FieldValTrim, 7, V.Local.sFormatSerial)
+		F.Intrinsic.String.RPad(V.Local.sFormatSerial, " ", 7, V.Local.sFormatSerial)
+		F.Intrinsic.String.Left(V.DataTable.dtPassedItemSet(V.Local.i).REV!FieldValTrim, 2, V.Local.sFormatRev)
+		'21st position always needs character
+		F.Intrinsic.Control.If(V.Local.sFormatRev, =, "")
+			V.Local.sFormatRev.Set("-")
+		F.Intrinsic.Control.EndIf
+		F.Intrinsic.String.LPad(V.Local.sFormatRev, " ", 2, V.Local.sFormatRev)
+		F.Intrinsic.String.Build("{0}{1}{2}", V.Local.sFormatPart, V.Local.sFormatSerial, V.Local.sFormatRev, V.Local.sFinalRet)
+		F.Data.Datatable.AddRow("dtFinalSerial", "ComboSerial", V.Local.sFinalRet)
+	F.Intrinsic.Control.Next(V.Local.i)
+	
+	'Add 1 back after use in for loop above 
+	F.Intrinsic.String.Build("Are you sure you want to print {0} label(s)?", V.DataTable.dtFinalSerial.RowCount, V.Local.sMessage)
+	F.Intrinsic.UI.Msgbox(V.Local.sMessage, "Print Confirmation", 4, V.Local.sRet)
+	F.Intrinsic.Control.If(V.Local.sRet, <>, 6)
+		F.Data.DataTable.Close("dtFinalSerial")
+		F.Intrinsic.Control.ExitSub
+	F.Intrinsic.Control.EndIf
+	
+	Gui.frmQty..Show
+	
+	'Reset form for next print
+	Gui.frmBarcode.txtPart.Text("")
+	Gui.frmBarcode.txtRev.Text("")
+	Gui.frmBarcode.txtDesc.Text("")
+	Gui.frmBarcode.txtSerialBeg.Text("")
+	Gui.frmBarcode.txtSerialEnd.Text("")
+F.Intrinsic.Control.Catch
+	F.Intrinsic.Control.CallSub(ErrorMsg, CurrentSub, v.Ambient.CurrentSubroutine)
+F.Intrinsic.Control.EndTry
+Program.Sub.cmdPrint_Click.End
+
+Program.Sub.callBrowser.Start
+F.Intrinsic.Control.Try
+	V.Local.sRet.Declare
+	V.Local.bIsLongPart.Declare
+	V.Local.sDisplayPart.Declare
+	V.Local.sTitles.Declare
+	V.Local.iWidths.Declare
+	V.Local.sSQL.Declare
+	V.Local.iBrwsrWidth.Declare
+	V.Local.iBrwsrHeight.Declare
+	V.Local.sFormat.Declare
+	V.Local.iAlign.Declare
+	
+	'Browser click events lead here 
+	
+	F.Intrinsic.Control.SelectCase(V.Args.iBrowserType)
+		F.Intrinsic.Control.Case("PartBrowser")	
+			'Set browser attributes 
+			F.Intrinsic.String.Split("Part*!*Rev*!*Location*!*Description*!*Product Line*!*Qty On Hand", "*!*", V.Local.sTitles)
+			F.Intrinsic.String.Split("1300*!*350*!*280*!*1800*!*400*!*800", "*!*", V.Local.iWidths)
+			V.Local.iBrwsrWidth.Set(12000)
+			V.Local.iBrwsrHeight.Set(10000)
+			F.Intrinsic.String.Split("0*!*0*!*0*!*0*!*0*!*0", "*!*", V.Local.iAlign)
+			F.Intrinsic.String.Split("*!**!**!**!**!*", "*!*", V.Local.sFormat)
+			F.ODBC.Connection!con.OpenCompanyConnection
+			V.Global.bConOpen.Set(True)
+			'Join INVENTORY_MSTR IM on INV_LXR LXR to show display part (if in that table), and show rev separately. Readable format below
+'			select coalesce(LXR.DISPLAY_PART, left(IM.PART, 17)) as DISPLAY_PART,
+'			case 
+'				when LXR.DISPLAY_PART is null 
+'				Then 
+'					case 
+'						when length(IM.PART) > 17 
+'						then right(IM.PART, 3)
+'						Else ''	
+'					end
+'				else
+'					LXR.DISPLAY_REV 
+'			end	as REV,
+'			IM.LOCATION, IM.DESCRIPTION, IM.PRODUCT_LINE, IM.QTY_ONHAND
+'			from INVENTORY_MSTR IM
+'			left join INV_LXR LXR on IM.PART = LXR.GSS_PART
+			V.Local.sSQL.Set("select coalesce(LXR.DISPLAY_PART, left(IM.PART, 17)) as DISPLAY_PART, case when LXR.DISPLAY_PART is null Then case when length(IM.PART) > 17 then right(IM.PART, 3) Else '' end else LXR.DISPLAY_REV end as REV, IM.LOCATION, IM.DESCRIPTION, IM.PRODUCT_LINE, IM.QTY_ONHAND from INVENTORY_MSTR IM left join INV_LXR LXR on IM.PART = LXR.GSS_PART")
+			
+			'Create Browser
+			F.Intrinsic.UI.Browser("Inventory Master", "con", V.Local.sSQL, V.Local.sTitles, V.Local.iWidths, V.Local.iBrwsrWidth, V.Local.iBrwsrHeight, V.Local.sFormat, V.Local.iAlign, V.Local.sRet)
+			
+			F.ODBC.Connection!con.Close
+			V.Global.bConOpen.Set(False)
+			
+			'Return to form 
+			F.Intrinsic.Control.If(V.Local.sRet, <>, "***CANCEL***")
+				F.Intrinsic.String.Split(V.Local.sRet, "*!*", V.Local.sRet)
+				'Check for long part 
+				F.Intrinsic.String.IsInString(V.Local.sRet(0), "||", False, V.Local.bIsLongPart)
+				F.Intrinsic.Control.If(V.Local.bIsLongPart)
+					F.Global.Inventory.GetDisplayPart(V.Local.sRet(0).Trim, V.Local.sRet(1).Trim, V.Local.sDisplayPart)
+					F.Intrinsic.String.Split(V.Local.sDisplayPart, "*!*", V.Local.sDisplayPart)
+				F.Intrinsic.Control.Else
+					V.Local.sDisplayPart.Redim(0, 3)
+					V.Local.sDisplayPart(0).Set(V.Local.sRet(0))
+					V.Local.sDisplayPart(1).Set(V.Local.sRet(1))
+					V.Local.sDisplayPart(3).Set(V.Local.sRet(3))
+				F.Intrinsic.Control.EndIf
+				
+				Gui.frmBarcode.txtPart.Text(V.local.sDisplayPart(0))
+				Gui.frmBarcode.txtRev.Text(V.Local.sDisplayPart(1))
+				Gui.frmBarcode.txtDesc.Text(V.Local.sDisplayPart(3))
+				'Check that serial number isn't filled out, if it is reset those fields 
+				F.Intrinsic.Control.If(V.Screen.frmBarcode!txtSerialBeg.Text, <>, "", OR, V.Screen.frmBarcode!txtSerialEnd.Text, <>, "")
+					Gui.frmBarcode.txtSerialBeg.Text("")
+					Gui.frmBarcode.txtSerialEnd.Text("")
+				F.Intrinsic.Control.EndIf
+			F.Intrinsic.Control.EndIf
+	F.Intrinsic.Control.EndSelect
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.Control.CallSub(ErrorMsg, CurrentSub, v.Ambient.CurrentSubroutine)
+F.Intrinsic.Control.EndTry
+Program.Sub.callBrowser.End
+Program.Sub.cmdClear_Click.Start
+F.Intrinsic.Control.Try
+	Gui.frmBarcode.txtPart.Text("")
+	Gui.frmBarcode.txtRev.Text("")
+	Gui.frmBarcode.txtDesc.Text("")
+	Gui.frmBarcode.txtSerialBeg.Text("")
+	Gui.frmBarcode.txtSerialEnd.Text("")
+F.Intrinsic.Control.Catch
+	F.Intrinsic.Control.CallSub(ErrorMsg, CurrentSub, v.Ambient.CurrentSubroutine)
+F.Intrinsic.Control.EndTry
+Program.Sub.cmdClear_Click.End
+Program.Sub.cmdAdd_Click.Start
+F.Intrinsic.Control.Try
+	V.Local.i.Declare
+	V.Local.iLabelTotal.Declare
+	V.Local.sSerialNum.Declare
+	V.Local.iFinalAlpha.Declare
+	V.Local.sStringRet.Declare
+	V.Local.sNumToIncrementStart.Declare
+	V.Local.sNumToIncrementEnd.Declare
+	V.Local.sLetterToFind.Declare
+	V.Local.bEndPrefixMatchBegPrefix.Declare
+	V.Local.sPrefix.Declare
+	V.Local.sMsg.Declare
+	V.Local.iIncrementNumLength.Declare
+	
+	'Check that all fields are populated
+	F.Intrinsic.Control.If(V.Screen.frmBarcode!txtPart.Text, =, "", "OR", V.Screen.frmBarcode!txtSerialBeg.Text, =, "")
+		F.Intrinsic.UI.Msgbox("Please select a part and/or serial number range", "No Part and/or Serial Number entered")
+		F.Intrinsic.Control.ExitSub
+	F.Intrinsic.Control.EndIf
+	F.Intrinsic.Control.If(V.Screen.frmBarcode!txtSerialEnd.Text, =, "")
+		F.Intrinsic.UI.Msgbox("Please select a part and/or serial number range", "No Part and/or Serial Number entered")
+		F.Intrinsic.Control.ExitSub
+	F.Intrinsic.Control.EndIf
+	
+	'Check if passed table exists. create if not
+	F.Intrinsic.Control.If(V.DataTable.dtPassedItemSet.Exists, =, False)
+		F.Data.Datatable.Create("dtPassedItemSet", True)
+		F.Data.Datatable.AddColumn("dtPassedItemSet", "PART", "String")
+		'F.Data.Datatable.AddColumn("dtPassedItemSet", "SERIAL", "String")
+		F.Data.Datatable.AddColumn("dtPassedItemSet", "REV", "String")
+		F.Data.Datatable.AddColumn("dtPassedItemSet", "SerialNums", "String")
+	F.Intrinsic.Control.EndIf
+	
+	'Look for last alpha character in string, keep that prefix (which could be alphanumeric), and just increment the numeric suffix
+	F.Intrinsic.String.RegExMatch(V.Screen.frmBarcode!txtSerialBeg.Text.Trim, "[A-Za-z]+", , V.Local.sStringRet)
+	F.Intrinsic.String.Split(V.Local.sStringRet, "*!*", V.Local.sStringRet)
+	F.Intrinsic.String.Right(V.Local.sStringRet(V.Local.sStringRet.UBound), 1, V.Local.sLetterToFind)
+	F.Intrinsic.String.Instr(V.Screen.frmBarcode!txtSerialBeg.Text.Trim, V.Local.sLetterToFind, 1, V.Local.iFinalAlpha)
+	F.Intrinsic.String.Mid(V.Screen.frmBarcode!txtSerialBeg.Text.Trim, V.Local.iFinalAlpha.++, V.Local.sNumToIncrementStart)
+	'Store Prefix for concat later 
+	F.Intrinsic.String.Left(V.Screen.frmBarcode!txtSerialBeg.Text.Trim, V.Local.iFinalAlpha.--, V.Local.sPrefix)
+	
+	'First check that prefix matches
+	F.Intrinsic.String.IsInString(V.Screen.frmBarcode!txtSerialEnd.Text.Trim, V.Local.sStringRet(V.Local.sStringRet.UBound), False, V.Local.bEndPrefixMatchBegPrefix)
+	F.Intrinsic.Control.If(V.Local.bEndPrefixMatchBegPrefix.Not)
+		F.Intrinsic.UI.Msgbox("Ending Serial number prefix does not match beginning. Please correct and try again")
+		F.Intrinsic.Control.ExitSub
+	F.Intrinsic.Control.EndIf
+	'Do again but extract ending serial number string. 
+	F.Intrinsic.String.Mid(V.Screen.frmBarcode!txtSerialEnd.Text.Trim, V.Local.iFinalAlpha.++, V.Local.sNumToIncrementEnd)
+	
+	'Check that ending range is larger than beginnging range
+	F.Intrinsic.Control.If(V.Local.sNumToIncrementEnd, <, V.Local.sNumToIncrementStart.Text)
+		F.Intrinsic.UI.Msgbox("Please make sure ending serial number is larger than beginning serial number.", "Invalid ending number")
+		F.Intrinsic.Control.ExitSub
+	F.Intrinsic.Control.EndIf
+	
+	F.Intrinsic.Math.Sub(V.Local.sNumToIncrementEnd, V.Local.sNumToIncrementStart, V.Local.iLabelTotal)
+	
+	'Either add the numbers in the range, or just the single one entered to the queue table
+	F.Intrinsic.Control.If(V.Screen.frmBarcode!txtSerialBeg.Text, =, V.Screen.frmBarcode!txtSerialEnd.Text)
+		V.Local.sSerialNum.Set(V.Screen.frmBarcode!txtSerialBeg.Text)
+		V.Local.sSerialNum.Set(V.Local.sSerialNum.Trim)
+		F.Data.Datatable.AddRow("dtPassedItemSet", "PART", V.Screen.frmBarcode!txtPart.Text, "REV", V.Screen.frmBarcode!txtRev.Text, "SerialNums", V.Local.sSerialNum)
+	F.Intrinsic.Control.Else	
+	
+		'Check for leading zeroes as the add function drops this.
+		V.Local.iIncrementNumLength.Set(V.Local.sNumToIncrementStart.Length)
+		
+		F.Intrinsic.Control.For(V.Local.i, 0, V.Local.iLabelTotal, 1)
+				'Means no leading zeroes found
+
+			F.Intrinsic.Math.Add(V.Local.sNumToIncrementStart, V.Local.i, V.Local.sSerialNum)
+			'Add this in the case where a leading zero is present due to the fact that Add function drops these digits 
+			F.Intrinsic.String.LPad(V.Local.sSerialNum, "0", V.Local.iIncrementNumLength, V.Local.sSerialNum)
+			F.Intrinsic.String.Build("{0}{1}", V.Local.sPrefix, V.Local.sSerialNum, V.Local.sSerialNum)
+			F.Data.Datatable.AddRow("dtPassedItemSet", "PART", V.Screen.frmBarcode!txtPart.Text, "REV", V.Screen.frmBarcode!txtRev.Text, "SerialNums", V.Local.sSerialNum)
+		F.Intrinsic.Control.Next(V.Local.i)
+	F.Intrinsic.Control.EndIf
+	
+	V.Local.iLabelTotal.Set(V.Local.iLabelTotal.++)
+	F.Intrinsic.String.Build("Added {0} serial number(s) to queue", V.Local.iLabelTotal, V.Local.sMsg)
+	F.Intrinsic.UI.Msgbox(V.Local.sMsg, "Successfully Added Serial Number(s)", 0)
+	
+F.Intrinsic.Control.Catch
+	F.Intrinsic.Control.CallSub(ErrorMsg, CurrentSub, v.Ambient.CurrentSubroutine)
+F.Intrinsic.Control.EndTry
+Program.Sub.cmdAdd_Click.End
+Program.Sub.cmdView_Click.Start
+F.Intrinsic.Control.Try
+	'Datatable already bound to gridview from main, just refresh it here.  
+	Gui.frmQueue.GsGCQueue.ResumeLayout()
+	Gui.frmQueue.GsGCQueue.MainView("gvQueue")
+	
+	Gui.frmQueue..Show
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.Control.CallSub(ErrorMsg, CurrentSub, v.Ambient.CurrentSubroutine)
+F.Intrinsic.Control.EndTry
+Program.Sub.cmdView_Click.End
+Program.Sub.txtSerialBeg_Change.Start
+F.Intrinsic.Control.Try
+	Gui.frmBarcode.txtSerialEnd.Text(V.Screen.frmBarcode!txtSerialBeg.Text)
+F.Intrinsic.Control.Catch
+	F.Intrinsic.Control.CallSub(ErrorMsg, CurrentSub, v.Ambient.CurrentSubroutine)
+F.Intrinsic.Control.EndTry
+Program.Sub.txtSerialBeg_Change.End
+Program.Sub.frmQueue_UnLoad.Start
+F.Intrinsic.Control.Try
+	Gui.frmQueue..Visible(False)
+F.Intrinsic.Control.Catch
+	F.Intrinsic.Control.CallSub(ErrorMsg, CurrentSub, v.Ambient.CurrentSubroutine)
+F.Intrinsic.Control.EndTry
+Program.Sub.frmQueue_UnLoad.End
+
+Program.Sub.GsGCQueue_RowClick.Start
+F.Intrinsic.Control.Try
+	V.Local.iX.Declare
+	V.Local.iY.Declare
+	
+	F.Intrinsic.Control.If(V.Args.Button.UCase, =, "RIGHT")
+		F.Intrinsic.Control.If(V.Args.RowIndex, <>, -1)
+			'Get mouse pos 
+			F.Intrinsic.API.GetMousePosition(V.Local.iX, V.Local.iY)
+			V.Global.iRowIndex.Set(V.Args.RowIndex)
+			Gui.frmQueue..ContextMenuShow("ctxRemove", V.Local.iX, V.Local.iY)
+		F.Intrinsic.Control.EndIf
+	F.Intrinsic.Control.EndIf
+F.Intrinsic.Control.Catch
+	F.Intrinsic.Control.CallSub(ErrorMsg, CurrentSub, v.Ambient.CurrentSubroutine)
+F.Intrinsic.Control.EndTry
+Program.Sub.GsGCQueue_RowClick.End
+
+Program.Sub.setContextMenus.Start
+F.Intrinsic.Control.Try
+	Gui.frmQueue..ContextMenuCreate("ctxRemove")
+	Gui.frmQueue..ContextMenuAddItem("ctxRemove", "RemRecord", 0, "Remove Serial Number")
+	Gui.frmQueue..ContextMenuSetItemEventHandler("ctxRemove", "RemRecord", "removeRecord")
+F.Intrinsic.Control.Catch
+	F.Intrinsic.Control.CallSub(ErrorMsg, CurrentSub, v.Ambient.CurrentSubroutine)
+F.Intrinsic.Control.EndTry
+Program.Sub.setContextMenus.End
+
+Program.Sub.removeRecord.Start
+F.Intrinsic.Control.Try
+	F.Data.DataTable.DeleteRow("dtPassedItemSet", V.Global.iRowIndex)
+F.Intrinsic.Control.Catch
+	F.Intrinsic.Control.CallSub(ErrorMsg, CurrentSub, v.Ambient.CurrentSubroutine)
+F.Intrinsic.Control.EndTry
+Program.Sub.removeRecord.End
+Program.Sub.cmdOK_Click.Start
+F.Intrinsic.Control.Try
+	V.Local.iLabelQty.Declare
+	V.Local.i.Declare
+	V.Local.sLabelPath.Declare
+	
+	F.Data.DataTable.AddColumn("dtFinalSerial", "LABEL_COPY", Long)
+	F.Intrinsic.Control.For(V.Local.i, 0, V.DataTable.dtFinalSerial.RowCount--, 1)
+		F.Data.DataTable.SetValue("dtFinalSerial", V.Local.i, "LABEL_COPY", V.Screen.frmQty!txtQty.Text)
+	F.Intrinsic.Control.Next(V.Local.i)
+	
+	F.Intrinsic.String.Build("{0}\LABELS\Custom\GCG_6332_SerialBarcode.lab", V.Caller.BusintDir, V.Local.sLabelPath)
+	F.Global.BI.PrintCodesoftLabelFromDatatable(V.Global.iBIRunID, 1, "dtFinalSerial", "Barcode Labels", V.Local.sLabelPath, True)
+	F.Data.Datatable.Close("dtFinalSerial")
+	F.Data.DataTable.DeleteRow("dtPassedItemSet")
+	
+	Gui.frmQty.txtQty.Text("1")
+	Gui.frmQty..Visible(False)
+F.Intrinsic.Control.Catch
+	F.Intrinsic.Control.CallSub(ErrorMsg, CurrentSub, v.Ambient.CurrentSubroutine)
+F.Intrinsic.Control.EndTry
+Program.Sub.cmdOK_Click.End
+Program.Sub.frmQty_UnLoad.Start
+F.Intrinsic.Control.Try
+	F.Intrinsic.Control.ExitSub
+	F.Data.DataTable.Close("dtFinalSerial")
+	Gui.frmQty..Visible(False)
+F.Intrinsic.Control.Catch
+	F.Intrinsic.Control.CallSub(ErrorMsg, CurrentSub, v.Ambient.CurrentSubroutine)
+F.Intrinsic.Control.EndTry
+Program.Sub.frmQty_UnLoad.End
+
+Program.Sub.Comments.Start
+${$5$}$3.0.0.0$}$1
+${$6$}$bmedina$}$20220110151103304$}$kOipCrsyLBVj2KoSwkcdK23ChxGVcBlEgZSzLq1p7T4YsdIpbJK1eGk73t1YukbfA4Q14myHgi8=
+Program.Sub.Comments.End
